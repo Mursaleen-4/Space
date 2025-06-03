@@ -23,100 +23,213 @@ st.set_page_config(
 # Modern CSS for beautiful design
 st.markdown("""
 <style>
+/* Base styles */
 body {
     background: linear-gradient(135deg, #232526 0%, #414345 100%) !important;
+    font-family: 'Inter', sans-serif;
 }
+
 .main {
     background: transparent !important;
+    max-width: 100% !important;
+    padding: 1rem !important;
 }
+
+/* Responsive container */
+.stApp {
+    max-width: 100% !important;
+    padding: 0 !important;
+}
+
+/* Hero section */
 .hero-section {
     background: linear-gradient(120deg, #232526 0%, #0f2027 100%);
     border-radius: 24px;
-    padding: 2.5rem 2rem 2rem 2rem;
+    padding: 2rem;
     margin-bottom: 2rem;
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
     display: flex;
+    flex-direction: row;
     align-items: center;
     gap: 2rem;
     animation: fadeIn 1.2s;
 }
+
+@media (max-width: 768px) {
+    .hero-section {
+        flex-direction: column;
+        text-align: center;
+        padding: 1.5rem;
+    }
+}
+
 .hero-title {
-    font-size: 2.8rem;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
     font-weight: 800;
     color: #00eaff;
     margin-bottom: 0.5rem;
     letter-spacing: 1px;
     text-shadow: 0 2px 8px #00000055;
 }
+
 .hero-desc {
-    font-size: 1.2rem;
+    font-size: clamp(1rem, 2vw, 1.2rem);
     color: #e0e0e0;
     margin-bottom: 0.5rem;
+    line-height: 1.5;
 }
+
 .hero-img {
     border-radius: 18px;
     box-shadow: 0 4px 24px 0 #00000055;
-    width: 120px;
-    height: 120px;
+    width: clamp(100px, 15vw, 120px);
+    height: clamp(100px, 15vw, 120px);
     object-fit: cover;
     border: 2px solid #00eaff;
     background: #fff;
 }
+
+/* Sidebar */
 .st-emotion-cache-1d391kg {
     background: linear-gradient(180deg, #232526 0%, #0f2027 100%) !important;
 }
+
 .st-emotion-cache-1v0mbdj {
     background: transparent !important;
 }
+
 .st-emotion-cache-1v0mbdj .stTabs [data-baseweb="tab-list"] {
-    gap: 1.5rem;
+    gap: 1rem;
+    flex-wrap: wrap;
 }
+
 .stTabs [data-baseweb="tab"] {
-    font-size: 1.1rem;
+    font-size: clamp(0.9rem, 1.5vw, 1.1rem);
     font-weight: 600;
-    padding: 0.7rem 1.5rem;
+    padding: 0.7rem 1.2rem;
     border-radius: 18px 18px 0 0;
     background: #23252622;
     color: #00eaff;
     transition: background 0.2s, color 0.2s;
+    white-space: nowrap;
 }
-.stTabs [aria-selected="true"] {
-    background: #00eaff33;
-    color: #fff;
-}
+
+/* Metric cards */
 .metric-card {
     background: linear-gradient(120deg, #232526 0%, #0f2027 100%);
     border-radius: 18px;
-    padding: 1.5rem 1rem;
+    padding: clamp(1rem, 2vw, 1.5rem);
     margin-bottom: 1rem;
     box-shadow: 0 2px 12px 0 #00000033;
     text-align: center;
     color: #00eaff;
     font-weight: 700;
-    font-size: 1.5rem;
+    font-size: clamp(1.2rem, 2vw, 1.5rem);
     animation: fadeIn 1s;
+    height: 100%;
 }
+
+/* Analysis sections */
 .analysis-section {
     background: linear-gradient(120deg, #232526 0%, #0f2027 100%);
     border-radius: 18px;
-    padding: 2rem 1.5rem;
+    padding: clamp(1.5rem, 3vw, 2rem);
     margin: 1.5rem 0;
     box-shadow: 0 2px 12px 0 #00000033;
     animation: fadeIn 1s;
 }
+
+/* Plotly charts */
+.js-plotly-plot {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* Responsive grid */
+.stTabs [role="tabpanel"] {
+    padding: 1rem 0;
+}
+
+/* Form elements */
+.stTextInput > div > div > input,
+.stNumberInput > div > div > input,
+.stSelectbox > div > div > div {
+    background: #23252622 !important;
+    border: 1px solid #00eaff33 !important;
+    color: #fff !important;
+    border-radius: 8px !important;
+    padding: 0.5rem !important;
+}
+
+/* Buttons */
+.stButton > button {
+    background: linear-gradient(120deg, #00eaff 0%, #00a8ff 100%) !important;
+    color: #fff !important;
+    border: none !important;
+    border-radius: 8px !important;
+    padding: 0.5rem 1.5rem !important;
+    font-weight: 600 !important;
+    transition: transform 0.2s !important;
+}
+
+.stButton > button:hover {
+    transform: translateY(-2px) !important;
+}
+
+/* Animations */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(30px); }
     to { opacity: 1; transform: translateY(0); }
 }
+
+/* Scrollbar */
 ::-webkit-scrollbar {
-    width: 10px;
+    width: 8px;
 }
+
 ::-webkit-scrollbar-thumb {
     background: #00eaff;
-    border-radius: 5px;
+    border-radius: 4px;
 }
+
 ::-webkit-scrollbar-track {
     background: #232526;
+}
+
+/* Responsive tables */
+.stDataFrame {
+    width: 100% !important;
+    overflow-x: auto !important;
+}
+
+/* Map container */
+.folium-map {
+    width: 100% !important;
+    height: 500px !important;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    margin-top: 3rem;
+    padding: 1rem;
+    color: #00eaff;
+    font-size: 0.9rem;
+}
+
+/* Responsive columns */
+@media (max-width: 768px) {
+    .stTabs [data-baseweb="tab-list"] {
+        justify-content: center;
+    }
+    
+    .stTabs [data-baseweb="tab"] {
+        padding: 0.5rem 1rem;
+    }
+    
+    .metric-card {
+        margin-bottom: 1rem;
+    }
 }
 </style>
 """, unsafe_allow_html=True)
