@@ -21,8 +21,7 @@ st.set_page_config(
 )
 
 # Modern CSS for beautiful design
-st.markdown("""
-<style>
+css = '''
 /* Base styles */
 body {
     background: linear-gradient(135deg, #232526 0%, #414345 100%) !important;
@@ -231,8 +230,9 @@ body {
         margin-bottom: 1rem;
     }
 }
-</style>
-""", unsafe_allow_html=True)
+'''
+
+st.markdown(f'<style>{css}</style>', unsafe_allow_html=True)
 
 # Sidebar logo
 st.sidebar.image("https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/SpaceX-Logo.svg/320px-SpaceX-Logo.svg.png", width=180)
