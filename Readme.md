@@ -2,6 +2,9 @@
 
 An advanced Python application that visualizes SpaceX launch data and predicts the success of future launches using machine learning models. This platform provides comprehensive insights into SpaceX's launch history and helps predict the success probability of future launches.
 
+## Live Demo:
+https://space-x.streamlit.app
+
 ## Features
 
 - **Interactive Dashboard**
